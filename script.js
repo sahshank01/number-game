@@ -4,8 +4,9 @@ let secretNumber = Math.trunc(Math.random() * 20) + 1;
 
 document.querySelector('.check').addEventListener('click', function () {
   const input = Number(document.querySelector('.guess').value);
-  if (!input) {
-    console.log('invalid input');
+  if (input < 1 || input > 20) {
+    document.querySelector('.message').innerHTML = 'Invalid Input';
+    decrementCurrentScore();
   } else {
     processInput(input);
   }
